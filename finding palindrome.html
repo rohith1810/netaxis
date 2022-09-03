@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Finding palindrome </title>
+</head>
+<style>
+    input {
+        display: none;
+    }
+</style>
+<body>
+
+    <h2 id="welcome">  Welcome <span id="user">User</span>!</h2>
+    <input type="text" id="textusername">
+    <button id="click">settings</button>
+    <button id="clicktochange" disabled>change name</button>
+    <button id="refresh">Refresh</button>
+
+    <script>
+        document.getElementById("refresh").addEventListener("click",function(){
+            window.location.href="";
+        })
+        var welcome = document.getElementById("welcome");
+        var nextpage = document.getElementById("click");
+        getinput = document.getElementById("textusername");
+
+       
+        var changename= document.getElementById("clicktochange");
+
+        nextpage.addEventListener("click",function(){
+            var newpage = document.getElementById("textusername");
+            newpage.style.cssText = "display:block;"
+            changename.disabled= false;
+        });
+        changename.addEventListener("click",function(){
+            var getinput = document.getElementById("textusername");
+            var nextpage = document.getElementById("click");
+            if(getinput.value.length==0){
+                alert("please enter something");
+            }
+            else if (getinput.value.length>15){
+                alert("user name is too long");
+            }
+            else if(getinput.value[0] == 0 || getinput.value[0] == 1 || getinput.value[0] == 2 || getinput.value[0] == 3 || getinput.value[0] == 4 || getinput.value[0] == 5 || getinput.value[0] == 6 || getinput.value[0] == 7 ||getinput.value[0] == 8 || getinput.value[0] == 9 ){
+                    alert("user name not start with number");
+            }
+            else{
+                var user = document.getElementById('user');
+                getinput.style.cssText = "display:none;";
+                a = getinput.value;
+                
+                user.textContent = a.toUpperCase();
+                user.style.cssText ="color:red;font-size:25px;"
+
+                getinput.value="";
+            }
+            changename.disabled= true;
+            // console.log(getinput.value);
+            }
+        );
+
+
+
+    </script>
+
+
+    
+</body>
+</html>
